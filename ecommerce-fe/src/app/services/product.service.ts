@@ -11,7 +11,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProductList(): Observable<Product[]> {
+  getProductList(theCategory: number): Observable<Product[]> {
     return this.http
       .get<GetResponse>(this.baseUrl)
       .pipe(map((response) => response._embedded.products));
